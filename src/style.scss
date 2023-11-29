@@ -14,8 +14,18 @@
   }
 }
 
+:root {
+  --main-color: #63a5f8;
+  --main-color-light: #d1deee;
+  --label-color: rgb(73, 142, 226);
+  --button-bg-color: #458ee8;
+  --parag-color: rgb(18, 59, 109);
+  --navbar-bg-color: rgb(26, 54, 88);
+  --navbar-bg-color-dark: rgb(14, 42, 76);
+}
+
 .formContainer {
-  background-color: #a7bcff;
+  background-color: var(--main-color);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -31,14 +41,14 @@
     align-items: center;
 
     .logo {
-      color: #5d5b8d;
+      color: var(--parag-color);
       font-weight: bold;
       font-size: 24px;
 
     }
 
     .title {
-      color: #5d5b8d;
+      color: var(--parag-color);
       font-size: 12px;
     }
 
@@ -51,14 +61,14 @@
         padding: 15px;
         border: none;
         width: 250px;
-        border-bottom: 1px solid #a7bcff;
+        border-bottom: 1px solid var(--main-color);
         &::placeholder {
           color: rgb(175, 175, 175);
         }
       }
 
       button {
-        background-color: #7b96ec;
+        background-color: var(--button-bg-color);
         color: white;
         padding: 10px;
         font-weight: bold;
@@ -70,7 +80,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        color: #8da4f1;
+        color: var(--label-color);
         font-size: 12px;
         cursor: pointer;
 
@@ -80,7 +90,7 @@
       }
     }
     p {
-      color: #5d5b8d;
+      color: var(--parag-color);
       font-size: 12px;
       margin-top: 10px;
     }
@@ -88,7 +98,7 @@
 }
 
 .home {
-  background-color: #a7bcff;
+  background-color: var(--main-color);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -107,17 +117,17 @@
 
     .sidebar {
       flex: 1;
-      background-color: #3e3c61;
+      background-color: var(--navbar-bg-color);
       position: relative;
 
       .navbar {
         display: flex;
         align-items: center;
-        background-color: #2f2d52;
+        background-color: var(--navbar-bg-color-dark);
         height: 50px;
         padding: 10px;
         justify-content: space-between;
-        color: #ddddf7;
+        color: var(--main-color-light);
 
         .logo {
           font-weight: bold;
@@ -131,7 +141,7 @@
           gap: 10px;
 
           img {
-            background-color: #ddddf7;
+            background-color: var(--main-color-light);
             height: 24px;
             width: 24px;
             border-radius: 50%;
@@ -139,8 +149,8 @@
           }
 
           button {
-            background-color: #5d5b8d;
-            color: #ddddf7;
+            background-color: var(--parag-color);
+            color: var(--main-color-light);
             font-size: 10px;
             border: none;
             cursor: pointer;
@@ -179,7 +189,7 @@
         cursor: pointer;
 
         &:hover {
-          background-color: #2f2d52;
+          background-color: var(--navbar-bg-color-dark);
         }
 
         img {
@@ -206,7 +216,7 @@
 
       .chatInfo {
         height: 50px;
-        background-color: #5d5b8d;
+        background-color: var(--parag-color);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -225,7 +235,7 @@
       }
 
       .messages {
-        background-color: #ddddf7;
+        background-color: var(--main-color-light);
         padding: 10px;
         height: calc(100% - 160px);
         overflow: scroll;
@@ -272,7 +282,7 @@
             .messageContent {
               align-items: flex-end;
               p {
-                background-color: #8da4f1;
+                background-color: var(--label-color);
                 color: white;
                 border-radius: 10px 0px 10px 10px;
               }
@@ -293,7 +303,7 @@
           width: 100%;
           border: none;
           outline: none;
-          color: #2f2d52;
+          color: var(--navbar-bg-color-dark);
           font-size: 18px;
 
           &::placeholder {
@@ -315,7 +325,7 @@
             border: none;
             padding: 10px 15px;
             color: white;
-            background-color: #8da4f1;
+            background-color: var(--label-color);
             cursor: pointer;
           }
         }
