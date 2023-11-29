@@ -4,12 +4,12 @@ import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
+  apiKey: "AIzaSyAALvjhBoCGNuCbz697ORQbPIUX5FSknis",
+  authDomain: "chatapp-cloudscape.firebaseapp.com",
+  projectId: "chatapp-cloudscape",
+  storageBucket: "chatapp-cloudscape.appspot.com",
+  messagingSenderId: "290857100401",
+  appId: "1:290857100401:web:ed814120367ba69ebde7d0"
 };
 
 // Initialize Firebase
