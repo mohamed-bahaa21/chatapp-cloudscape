@@ -155,7 +155,7 @@ const Register = () => {
         <TextContent>
         <p>
           <small>
-          You do have an account? <Link to="/login">Login</Link>
+          You already have an account ? <Link to="/login">Login</Link>
           </small>
         </p>
         </TextContent>
