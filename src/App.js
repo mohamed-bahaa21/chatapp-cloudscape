@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
+import "@cloudscape-design/global-styles/index.css"
+
 function App() {
   const { currentUser } = useContext(AuthContext);
 
