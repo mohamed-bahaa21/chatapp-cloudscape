@@ -14,6 +14,8 @@ import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
+import { TbSend } from "react-icons/tb";
+
 const Input = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
@@ -77,21 +79,12 @@ const Input = () => {
     <div className="input">
       <input
         type="text"
-        placeholder="Type something..."
+        placeholder="Type message here"
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
       <div className="send">
-        <input
-          type="file"
-          style={{ display: "none" }}
-          id="file"
-          onChange={(e) => setImg(e.target.files[0])}
-        />
-        <label htmlFor="file">
-          <img src={Img} alt="" />
-        </label>
-        <button onClick={handleSend}>Send</button>
+        <button className="icon" onClick={handleSend}><TbSend className="icon logout-icon"/></button>
       </div>
     </div>
   );

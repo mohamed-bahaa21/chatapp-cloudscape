@@ -12,7 +12,7 @@ const Message = ({ message }) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
 
-  console.log("Message: ", message);
+  // console.log("Message: ", message);
 
   function formatTimeAgo(timestamp) {
     const now = new Date();
@@ -46,15 +46,15 @@ const Message = ({ message }) => {
   const date = new Date(milliseconds);
   const timestamp = new Date(date);
   const updatedTimestamp = formatTimeAgo(timestamp);
-  console.log(formatTimeAgo(timestamp));
-  console.log(date);
+  // console.log(formatTimeAgo(timestamp));
+  // console.log(date);
 
   return (
     <div
       ref={ref}
       className={`message ${message.senderId === currentUser.uid && "owner"}`}
     >
-      <div className="messageInfo">
+      {/* <div className="messageInfo">
         <img
           src={
             message.senderId === currentUser.uid
@@ -64,7 +64,7 @@ const Message = ({ message }) => {
           alt=""
         />
         <span>{updatedTimestamp}</span>
-      </div>
+      </div> */}
       <div className="messageContent">
         <p>{message.text}</p>
         {message.img && <img src={message.img} alt="" />}

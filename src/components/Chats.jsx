@@ -25,7 +25,11 @@ const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  const handleSelect = (u) => {
+  const [activeId, setActiveId] = useState(null);
+
+
+  const handleSelect = (id, u) => {
+    setActiveId(id);
     dispatch({ type: "CHANGE_USER", payload: u });
   };
 
@@ -33,11 +37,22 @@ const Chats = () => {
     <div className="chats">
       {Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
         <div
-          className="userChat"
+          id={chat[0]}
+          className={`userChat ${activeId === chat[0] ? 'userChat-active' : 'userChat-inactive'}`}
           key={chat[0]}
-          onClick={() => handleSelect(chat[1].userInfo)}
+          onClick={() => handleSelect(chat[0], chat[1].userInfo)}
         >
-          <img src={chat[1].userInfo.photoURL} alt="" />
+          <div>
+
+          <div class="cs-avatar cs-avatar--md">
+            <div class="cs-status cs-status--md cs-status--available">
+              <div class="cs-status__bullet">
+              </div>
+            </div> 
+            <img src={chat[1].userInfo.photoURL} alt="" />
+          </div>
+          
+          </div>
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>
             <p>{chat[1].lastMessage?.text}</p>
