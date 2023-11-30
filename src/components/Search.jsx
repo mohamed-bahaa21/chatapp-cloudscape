@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   collection,
   query,
@@ -12,17 +12,26 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+
+import Input from "@cloudscape-design/components/input";
+
+
 const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
-
   const { currentUser } = useContext(AuthContext);
 
-  const handleSearch = async () => {
+  useEffect(() => {
+    const timeOutId = setTimeout(() => handleSearch(username), 10);
+    return () => clearTimeout(timeOutId);
+  }, [username]);
+
+  const handleSearch = async (searchThat) => {
+    console.log(username);
     const q = query(
       collection(db, "users"),
-      where("displayName", "==", username)
+      where("displayName", "==", searchThat)
     );
 
     try {
@@ -31,6 +40,7 @@ const Search = () => {
         setUser(doc.data());
       });
     } catch (err) {
+      console.log("heeeeeeeeere");
       setErr(true);
     }
   };
@@ -76,26 +86,29 @@ const Search = () => {
     setUser(null);
     setUsername("")
   };
+
+
   return (
-    <div className="search">
+    <div className={`search ${user ? 'search-grey-bg' : ''}`}>
       <div className="searchForm">
-        <input
-          type="text"
-          placeholder="Find a user"
+        <Input
+          type="search"
           onKeyDown={handleKey}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={({ detail }) => {setUsername(detail.value); console.log("Username: ", username); handleSearch()}}
           value={username}
+          placeholder="Search for user..."
         />
       </div>
       {err && <span>User not found!</span>}
-      {user && (
+      {user ? (
         <div className="userChat" onClick={handleSelect}>
           <img src={user.photoURL} alt="" />
           <div className="userChatInfo">
             <span>{user.displayName}</span>
           </div>
         </div>
-      )}
+      ) : ( <div className="userChat"></div> )
+      }
     </div>
   );
 };

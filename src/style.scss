@@ -22,7 +22,17 @@
   --parag-color: rgb(18, 59, 109);
   --navbar-bg-color: rgb(26, 54, 88);
   --navbar-bg-color-dark: rgb(14, 42, 76);
+
+  --light-blue: #F6FBFE;
+  --light-blue-dark: #c7d9e3;
+  --light-grey: #D1DBE3;
+  --msg-bg-color: #C6E3FA;
+  --msg-bg-color-dark: #6EA9D7;
+  --white: #FFFFFF;
+  --black-text: rgba(0,0,0,.87);
 }
+
+
 
 .formContainer {
   background-color: var(--main-color-light);
@@ -98,36 +108,39 @@
 }
 
 .home {
-  background-color: var(--main-color);
+  background-color: var(--white);
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 
   .container {
-    border: 1px solid white;
-    border-radius: 10px;
-    width: 65%;
-    height: 80%;
+    // border: 1px solid white;
+    // border-radius: 10px;
+    width: 100%;
+    height: 100%;
     display: flex;
     overflow: hidden;
     @include tablet {
-     width: 90%;
+     width: 100%;
     }
 
     .sidebar {
       flex: 1;
-      background-color: var(--navbar-bg-color);
+      background-color: var(--white);
+      // border: 1px solid var(--light-grey);
       position: relative;
 
       .navbar {
         display: flex;
         align-items: center;
-        background-color: var(--navbar-bg-color-dark);
+        background-color: var(--light-blue);
+        border: 1px solid var(--light-grey);
+        color: var(--navbar-bg-color) !important;
         height: 50px;
         padding: 10px;
         justify-content: space-between;
-        color: var(--main-color-light);
+        color: var(--main-color);
 
         .logo {
           font-weight: bold;
@@ -136,9 +149,17 @@
           }
         }
 
+        .logout-icon {
+          font-size: 1.5em;
+        }
+        .logout-icon:hover {
+          cursor: pointer;
+        }
+
         .user {
           display: flex;
           gap: 10px;
+          font-size: 1.25em;
 
           img {
             background-color: var(--main-color-light);
@@ -151,7 +172,8 @@
           button {
             background-color: var(--parag-color);
             color: var(--main-color-light);
-            font-size: 10px;
+            font-size: 14px;
+            padding: 0.2rem 0.8rem;
             border: none;
             cursor: pointer;
             @include tablet {
@@ -161,8 +183,13 @@
           }
         }
       }
+
+      .search-grey-bg {
+        background-color: var(--light-grey);
+      }
+
       .search {
-        border-bottom: 1px solid gray;
+        // border-bottom: 1px solid gray;
 
         .searchForm {
           padding: 10px;
@@ -170,7 +197,7 @@
           input {
             background-color: transparent;
             border: none;
-            color: white;
+            color: var(--navbar-bg-color);
             outline: none;
 
             &::placeholder {
@@ -185,11 +212,12 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        color: white;
+        color: var(--navbar-bg-color);
         cursor: pointer;
 
         &:hover {
-          background-color: var(--navbar-bg-color-dark);
+          background-color: var(--light-blue-dark);
+          // color: var(--white);
         }
 
         img {
@@ -206,7 +234,7 @@
           }
           p {
             font-size: 14px;
-            color: lightgray;
+            color: var(--navbar-bg-color);
           }
         }
       }
@@ -216,12 +244,13 @@
 
       .chatInfo {
         height: 50px;
-        background-color: var(--parag-color);
+        background-color: var(--light-blue);
+        border: 1px solid var(--light-grey);
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 10px;
-        color: lightgray;
+        color: var(--navbar-bg-color);
       }
 
       .chatIcons {
@@ -234,10 +263,15 @@
         }
       }
 
+      .messages-cont {
+        height: calc(100vh - 0px);
+      }
+
       .messages {
-        background-color: var(--main-color-light);
+        background-color: var(--white);
+        border: 1px solid var(--light-grey);
         padding: 10px;
-        height: calc(100% - 160px);
+        height: calc(100% - 9.25rem);
         overflow: scroll;
 
         .message {
@@ -256,6 +290,11 @@
               height: 40px;
               border-radius: 50%;
               object-fit: cover;
+              margin: 0 auto;
+            }
+
+            span {
+              scale: 0.8;
             }
           }
           .messageContent {
@@ -265,7 +304,7 @@
             gap: 10px;
 
             p {
-              background-color: white;
+              background-color: var(--msg-bg-color);
               padding: 10px 20px;
               border-radius: 0px 10px 10px 10px;
               max-width: max-content;
@@ -282,8 +321,8 @@
             .messageContent {
               align-items: flex-end;
               p {
-                background-color: var(--label-color);
-                color: white;
+                background-color: var(--msg-bg-color-dark);
+                color: var(--black-text);
                 border-radius: 10px 0px 10px 10px;
               }
             }
