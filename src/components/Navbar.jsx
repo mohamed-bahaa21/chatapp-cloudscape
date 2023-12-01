@@ -25,11 +25,7 @@ const Navbar = () => {
       </div>
 
       <div className='user'>
-        {/* <span>Ande Chen</span> */}
         <TbLogout className="icon logout-icon" onClick={()=>signOut(auth)}/>
-        {/* <Button variant="primary" onClick={()=>signOut(auth)}>
-          logout
-        </Button> */}
       </div>
     </div>
   )

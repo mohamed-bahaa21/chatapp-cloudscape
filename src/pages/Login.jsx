@@ -23,15 +23,10 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const [profile_image, setProfileImage] = React.useState([]);
 
-  
-  // signOut(auth)
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
-
-    
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -50,7 +45,6 @@ const Login = () => {
       </TextContent>
         
       <form onSubmit={handleSubmit}>
-        {/* <input required type="email" placeholder="email" /> */}
         <Input
           type="email"
           inputMode="email"
@@ -59,8 +53,6 @@ const Login = () => {
           ariaRequired
           placeholder="Enter Your Email"
         />
-
-        {/* <input required type="password" placeholder="password" /> */}
         <Input
           onChange={({ detail }) => setPassword(detail.value)}
           value={password}

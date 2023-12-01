@@ -10,13 +10,7 @@ import { useNavigate, Link } from "react-router-dom";
 import FileUpload from "@cloudscape-design/components/file-upload";
 import FormField from "@cloudscape-design/components/form-field";
 import Input from "@cloudscape-design/components/input";
-import Header from "@cloudscape-design/components/header";
-import SpaceBetween from "@cloudscape-design/components/space-between";
-import Button from "@cloudscape-design/components/button";
 import TextContent from "@cloudscape-design/components/text-content";
-
-
-
 
 const Register = () => {
   // new imp UI
@@ -89,7 +83,6 @@ const Register = () => {
         <span className="title"><strong>Register</strong></span>
       </TextContent>
         <form onSubmit={handleSubmit}>
-          {/* <input required type="text" placeholder="display name" /> */}
           <Input
             type="text"
             onChange={({ detail }) => setName(detail.value)}
@@ -99,7 +92,6 @@ const Register = () => {
             placeholder="Enter Your Displayed Name"
           />
 
-          {/* <input required type="email" placeholder="email" /> */}
           <Input
             type="email"
             inputMode="email"
@@ -109,7 +101,6 @@ const Register = () => {
             placeholder="Enter Your Email"
           />
 
-          {/* <input required type="password" placeholder="password" /> */}
           <Input
             onChange={({ detail }) => setPassword(detail.value)}
             value={password}
@@ -118,11 +109,6 @@ const Register = () => {
             placeholder="Enter Your Password"
           />
 
-          {/* <input required style={{ display: "none" }} type="file" id="file" />
-          <label htmlFor="file">
-            <img src={Add} alt="" />
-            <span>Add an avatar</span>
-          </label> */}
           <FormField label="Profile Image">
             <FileUpload
               type="file" id="file"
